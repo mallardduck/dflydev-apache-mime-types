@@ -33,6 +33,15 @@ interface RepositoryInterface
     public function dumpTypeToExtensions();
 
     /**
+     * Find first extension for a type
+     *
+     * @param string $type
+     *
+     * @return array
+     */
+    public function findExtension($type);
+
+    /**
      * Find all extensions for a type
      *
      * @param string $type

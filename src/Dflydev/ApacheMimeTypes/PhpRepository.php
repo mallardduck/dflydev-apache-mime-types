@@ -16,7 +16,7 @@ namespace Dflydev\ApacheMimeTypes;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class PhpRepository implements RepositoryInterface
+class PhpRepository extends AbstractRepository
 {
     protected $extensionToType = array(
         'ez' => 'application/andrew-inset',
@@ -1769,44 +1769,9 @@ class PhpRepository implements RepositoryInterface
         'video/x-smv' => array('smv'),
         'x-conference/x-cooltalk' => array('ice'),
     );
-
-    /**
-     * {@inheritdoc}
-     */
-    public function dumpExtensionToType()
+    
+    protected function internalInit()
     {
-        return $this->extensionToType;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function dumpTypeToExtensions()
-    {
-        return $this->typeToExtensions;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findExtensions($type)
-    {
-        if (isset($this->typeToExtensions[$type])) {
-            return $this->typeToExtensions[$type];
-        }
-
-        return array();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findType($extension)
-    {
-        if (isset($this->extensionToType[$extension])) {
-            return $this->extensionToType[$extension];
-        }
-
-        return null;
+      
     }
 }
