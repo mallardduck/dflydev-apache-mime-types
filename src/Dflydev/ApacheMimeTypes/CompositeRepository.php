@@ -69,6 +69,16 @@ class CompositeRepository implements RepositoryInterface
     /**
      * {@inheritdoc}
      */
+    public function findExtension($type)
+    {
+      $extensions = $this->findExtensions($type);
+      if(count($extensions)==0) return null;
+      return $extensions[0];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function findExtensions($type)
     {
         $typeToExtensions = $this->dumpTypeToExtensions();
